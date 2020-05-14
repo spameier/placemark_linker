@@ -81,3 +81,13 @@ Then just execute the following:
 
 ## Output
 The script will generate a csv file specified by `--csv_filename` or if not provided defaults to the file name of `--points` plus a timestamp.
+
+## Contributing
+1. Install development dependencies
+   ```bash
+   pip install -r requirements-dev.txt
+   ```
+2. Install pre-commit hook
+   ```bash
+   pre-commit install
+   ```
