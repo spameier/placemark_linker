@@ -3,6 +3,8 @@ This `python` script links points contained in a kml file to other areas contain
 
 The points are expected to be simple points with x, y and maybe z coordinates. The other areas have to be multigeometry containing multiple polygons. If you want to add different shapes you need to expand the function `get_geometry_from_xml` in the class [`Placemark`](./placemark_linker/placemark.py).
 
+Some example data can be found here: [spameier/placemark_link-data](https://github.com/spameier/placemark_linker-data).
+
 ## Installation
 
 To install, simply run:
