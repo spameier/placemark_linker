@@ -77,24 +77,22 @@ def main():
     for arg in args.geometries:
         geometries[arg[0]] = Placemark.from_kml(arg[1])
 
-    # link points to other areas
-    # this is probably not optimal
-    for point in points:
-        threads = []
-        for name in geometries:
-            threads.append(_get_thread(point, name, geometries[name]))
-        for thread in threads:
-            thread.join()
-        msg = "{0} / {1}: {2}".format(points.index(point) + 1, len(points), point.name)
-        buffer = " " * (os.get_terminal_size().columns - len(msg))
-        print(msg + buffer, end="\r")
-    print()
-
     with open(csv_filename, "w") as csv_file:
         writer = csv.writer(csv_file)
         writer.writerow(["Point"] + list(geometries.keys()))
+        # link points to other areas
+        # this is probably not optimal
         for point in points:
+            threads = []
+            for name in geometries:
+                threads.append(_get_thread(point, name, geometries[name]))
+            for thread in threads:
+                thread.join()
+            msg = "{0} / {1}: {2}".format(points.index(point) + 1, len(points), point.name)
+            buffer = " " * (os.get_terminal_size().columns - len(msg))
+            print(msg + buffer, end="\r")
             writer.writerow([point.name] + _get_names(point.links))
+    print()
 
 
 if __name__ == "__main__":
