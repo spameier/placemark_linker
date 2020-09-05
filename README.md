@@ -14,6 +14,18 @@ Under Windows you have to install `shapely` manually. Download the matching whee
 pip install Shapely-1.6.4.post2-cp37-cp37m-win_amd64.whl
 ```
 
+### Docker
+You can also run this script as a docker container. It is published on the [Docker Hub](https://hub.docker.com/r/spameier/placemark_linker).
+```
+docker run -ti --rm -v "$PWD:/data" spameier/placemark_linker \
+  --points "/data/villages.kml" \
+  --geometries Fokontany "/data/fokontany.kml" \
+  --geometries Commune "/data/commune.kml" \
+  --geometries District "/data/district.kml" \
+  --geometries Region "/data/region.kml" \
+  --csv_file "/data/villages.csv"
+```
+
 ### Generate executables
 You can also generate executables by using `cx_Freeze`:
 #### Linux
