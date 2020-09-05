@@ -76,7 +76,7 @@ If you're in a folder next to placemark linker you might have a folder layout li
 │   │   └── win
 │   │       └── placemark_linker.exe
 │   └── ...
-└── res
+└── placemark_linker-data
     ├── Communes aug 2018.kml
     ├── Districts aug 2018.kml
     ├── Fokontany aug 2018.kml
@@ -86,7 +86,13 @@ If you're in a folder next to placemark linker you might have a folder layout li
 Then just execute the following:
 - Linux
 ```
-../placemark_linker/dist/lin/placemark_linker --points "villages february 2018.kml" --geometries Fokontany "Fokontany aug 2018.kml" --geometries Commune "Communes aug 2018.kml" --geometries District "Districts aug 2018.kml" --geometries Region "Regions aug 2018.kml" --csv_file villages.csv
+../placemark_linker/dist/lin/placemark_linker \
+  --points "villages february 2018.kml" \
+  --geometries Fokontany "Fokontany aug 2018.kml" \
+  --geometries Commune "Communes aug 2018.kml" \
+  --geometries District "Districts aug 2018.kml" \
+  --geometries Region "Regions aug 2018.kml" \
+  --csv_file villages.csv
 ```
 - Windows
 ```
